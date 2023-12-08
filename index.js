@@ -24,6 +24,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then((res) => {
     // Routing.....
+    console.log("Database Connected Successfully");
     routes(app);
     
     // Listening for requests.....

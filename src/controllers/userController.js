@@ -28,10 +28,10 @@ const getAllUsers = async (req, res) => {
 
 // Create a new user
 const createUser = async (req, res) => {
-  const { name, email, phone } = req.body;
+  const { f_name, l_name, email, password } = req.body;
 
   try {
-    const user = await User.create({ name, email, phone });
+    const user = await User.create({ f_name, l_name, email, password });
     if (!user) {
       return res.status(400).json({ error: "No user created error." });
     }

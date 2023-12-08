@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name: {
+    f_name: {
+      type: String,
+      required: true,
+    },
+    l_name: {
       type: String,
       required: true,
     },
@@ -12,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    phone: {
+    password: {
       type: String,
       required: true,
     },
