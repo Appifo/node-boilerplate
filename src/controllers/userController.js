@@ -28,10 +28,27 @@ const getAllUsers = async (req, res) => {
 
 // Create a new user
 const createUser = async (req, res) => {
-  const { f_name, l_name, email, password } = req.body;
+  const { f_name, l_name, username, email, password, address, phone } =
+    req.body;
 
   try {
-    const user = await User.create({ f_name, l_name, email, password });
+    const isUserExist = await User.findOne({ email });
+
+    if (isUserExist) {
+      return res
+        .status(400)
+        .json({error: `User has already registered with ${email} email.`});
+    }
+
+    const user = await User.create({
+      f_name,
+      l_name,
+      username,
+      email,
+      password,
+      address,
+      phone,
+    });
     if (!user) {
       return res.status(400).json({ error: "No user created error." });
     }

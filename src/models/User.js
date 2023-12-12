@@ -6,19 +6,28 @@ const userSchema = new Schema(
   {
     f_name: {
       type: String,
-      required: true,
     },
     l_name: {
+      type: String,
+    },
+    username: {
       type: String,
       required: true,
     },
     email: {
       type: String,
+      unique: true,
       required: true,
     },
     password: {
       type: String,
       required: true,
+    },
+    address: {
+      type: String,
+    },
+    phone: {
+      type: String,
     },
   },
   { timestamps: true }
