@@ -4,12 +4,16 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
   {
-    course_name: {
+    title: {
       type: String,
       required: true,
     },
-    course_description: {
+    description: {
       type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
       required: true,
     },
   },

@@ -29,10 +29,10 @@ const getAllCourses = async (req, res) => {
 // Create a new course
 const createCourse = async (req, res) => {
   console.log("Req.Body: ", req.body);
-  const { course_name, course_description } = req.body;
+  const { title, description, price } = req.body;
 
   try {
-    const course = await Course.create({ course_name, course_description });
+    const course = await Course.create({ course_name, description, price });
     if (!course) {
       return res.status(400).json({ error: "No course created error." });
     }
