@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Assignment from "../models/Assignment.js";
 
-// Get a single assignment
+// Get a single assignment.....
 const getAssignment = async (req, res) => {
   const { id } = req.params;
 
@@ -26,15 +26,31 @@ const getAllAssignments = async (req, res) => {
   res.status(200).json(assignments);
 };
 
-// Create a new assignment
+// Create a new assignment.....
 const createAssignment = async (req, res) => {
   console.log("Req.Body: ", req.body);
-  const { title, description, due_date } = req.body;
+  const {
+    title,
+    description,
+    feedback,
+    type,
+    scores,
+    weightage,
+    status,
+    attachments,
+    due_date,
+  } = req.body;
 
   try {
     const assignment = await Assignment.create({
       title,
       description,
+      feedback,
+      type,
+      scores,
+      weightage,
+      status,
+      attachments,
       due_date,
     });
     if (!assignment) {
@@ -46,7 +62,7 @@ const createAssignment = async (req, res) => {
   }
 };
 
-// Update assignment
+// Update assignment.....
 const updateAssignment = async (req, res) => {
   const { id } = req.params;
 
@@ -68,7 +84,7 @@ const updateAssignment = async (req, res) => {
   res.status(200).json(assignment);
 };
 
-// Delete a assignment
+// Delete a assignment.....
 const deleteAssignment = async (req, res) => {
   const { id } = req.params;
 
@@ -85,7 +101,7 @@ const deleteAssignment = async (req, res) => {
   res.status(200).json(assignment);
 };
 
-// Export crud methods
+// Export crud methods.....
 export {
   getAssignment,
   getAllAssignments,

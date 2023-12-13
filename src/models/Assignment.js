@@ -8,14 +8,24 @@ const assignmentSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    description: String,
+    feedback: String,
+    type: String,
+    scores: Number,
+    weightage: Number,
+    attachments: String,
+    subject: {
+      type: String,
+      required: true,
+    },
+    status: {
       type: String,
       required: true,
     },
     due_date: {
       type: Number,
       required: true,
-    }
+    },
   },
   { timestamps: true }
 );
